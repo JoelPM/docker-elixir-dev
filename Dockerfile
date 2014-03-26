@@ -23,18 +23,19 @@ RUN dpkg -i erlang-solutions_1.0_all.deb
 RUN apt-get remove -y vim vim-runtime vim-tiny vim-common
 
 # Install required packages 
+# build-essential      # general
+# autotools-dev        # general
+# automake             # general
+# man                  # general, git, tmux
+# pkg-config           # tmux
+# libevent-dev         # tmux
+# libncurses-dev       # tmux, vim
+# libssl-dev           # git
+# libcurl4-openssl-dev # git
+# libexpat1-dev        # git
+# gettext              # git
 RUN apt-get update
-RUN apt-get install -y build-essential       \ # general
-                       autotools-dev         \ # general
-                       automake              \ # general
-                       man                   \ # general, git, tmux
-                       pkg-config            \ # tmux
-                       libevent-dev          \ # tmux
-                       libncurses-dev        \ # tmux, vim
-                       libssl-dev            \ # git
-                       libcurl4-openssl-dev  \ # git
-                       libexpat1-dev         \ # git
-                       gettext                 # git
+RUN apt-get install -y build-essential autotools-dev automake man pkg-config libevent-dev libncurses-dev libssl-dev libcurl4-openssl-dev libexpat1-dev gettext
 
 # Install zsh 5.0.5
 RUN mkdir /opt/zsh
